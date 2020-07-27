@@ -1,0 +1,68 @@
+/* File: dialogs/styles/accordion.css 
+ * Note: styled according to CSS Box Model
+ * Date: 03/16/2020
+ */
+
+.accordion {
+    border: 1px solid #d9d9d9;
+    border-radius: 5px;
+}
+.accordion .accordion-item:first-child .title {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.accordion .accordion-item:last-child .title {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.accordion .accordion-item .title {
+    width: 100%;
+
+    background-color: #f6f6f6;
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    outline: none;
+        
+    color: #444;
+    text-align: left;
+    font-size: 0.8rem;
+
+    cursor: pointer;
+    transition: 0.4s;
+}
+.accordion .accordion-item .title:after {
+    float: right;
+    
+    margin-left: 5px;
+    /* Unicode character for "plus" sign (+) */
+    content: '\02795';
+    
+    font-size: 13px;
+    color: #777;
+
+}
+.accordion .accordion-item .panel {
+    max-height: 0;
+
+    padding-top: 1px;
+    padding-bottom: 1px;
+
+    overflow: hidden;
+    font-size: 0.6rem;
+    transition: max-height 0.15s ease-out;
+}
+.accordion .accordion-item.active .title {
+    background-color: #dddddd;
+}
+.accordion .accordion-item.active .title:after {
+    /* Unicode character for "minus" sign (-) */
+    content: '\2796';
+}
+.accordion .accordion-item.active .panel {
+    max-height: 100px;
+    transition: max-height 0.25s ease-in;
+}
+
+
+/* eof */

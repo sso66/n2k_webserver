@@ -1,0 +1,1676 @@
+{   
+    "switchGroups" : [
+        {
+          "groupNumber" : 1,
+          "groupLabel"  : "SW 15/16/17\nOn",
+          "showGroupControlledWarning" : true,
+          "switches" :
+            [
+                {
+                    "instance" : 65,
+                    "channel" : 15,
+                    "desiredState" : 1,
+                    "delay" : 0
+                },
+                {
+                    "instance" : 65,
+                    "channel" : 16,
+                    "desiredState" : 1,
+                    "delay" : 1000
+                },
+                {
+                    "instance" : 65,
+                    "channel" : 17,
+                    "desiredState" : 1,
+                    "delay" : 2000
+                }
+            ]
+        },
+        {
+          "groupNumber" : 2,
+          "groupLabel"  : "SW 15/16/17\nOff",
+          "showGroupControlledWarning" : true,
+          "switches" :
+            [
+                {
+                    "instance" : 65,
+                    "channel" : 15,
+                    "desiredState" : 0,
+                    "delay" : 0
+                },
+                {
+                    "instance" : 65,
+                    "channel" : 16,
+                    "desiredState" : 0,
+                    "delay" : 1000
+                },
+                {
+                    "instance" : 65,
+                    "channel" : 17,
+                    "desiredState" : 0,
+                    "delay" : 2000
+                }
+            ]
+        }
+    ],
+
+
+    "pages" : [
+        { "name" : "Combined",
+          "backgroundColor": "#000",
+          "width" : 600,
+          "height" : 350,
+          "controls":
+            [
+                {
+                    "control" : "GAUGE",
+                    "title" : "Engine Room Temp", "units":"°F",
+                    "majorDivisions":4, "minorDivisions":5,
+                    "min":0, "max":200,
+                    "ranges" : [
+                        { "min":0,  "max":50, "color":"#F80" },
+                        { "min":50, "max":70, "color":"#FF0" },
+                        { "min":70, "max":100, "color":"#0F0" },
+                        { "min":100, "max":120, "color":"#FF0" },
+                        { "min":120, "max":200, "color":"#F00" }
+                        ],
+                    "format" : "Integer",
+                    "top":0, "left" : 0, "width":100,
+                    "parameter":"TEMPERATURE_INSIDE","instance": 0
+                },
+
+                {
+                    "control":"GAUGE",
+                    "title":"Main Cabin Temp", "units":"°F",
+                    "majorDivisions":5, "minorDivisions":4,
+                    "min":0, "max":200,
+                    "ranges" : [
+                        { "min":0,  "max":50, "color":"#F80" },
+                        { "min":50, "max":70, "color":"#FF0" },
+                        { "min":70, "max":100, "color":"#0F0" },
+                        { "min":100, "max":120, "color":"#FF0" },
+                        { "min":120, "max":200, "color":"#F00" }
+                        ],
+                    "format" : "Integer",
+                    "top":0, "left":100, "width":100,
+                    "parameter":"TEMPERATURE_MAIN_CABIN", "instance":0
+                },
+
+                {
+                    "control" : "GAUGE",
+                    "title" : "Exhaust Gas Temp", "units":"°F",
+                    "majorDivisions":5, "minorDivisions":4,
+                    "min":0, "max":200,
+                    "ranges" : [
+                        { "min":0,  "max":50, "color":"#F80" },
+                        { "min":50, "max":70, "color":"#FF0" },
+                        { "min":70, "max":100, "color":"#0F0" },
+                        { "min":100, "max":120, "color":"#FF0" },
+                        { "min":120, "max":200, "color":"#F00" }
+                        ],
+                    "format" : "Integer",
+                    "top":0, "left":200, "width":100,
+                    "parameter":"TEMPERATURE_EXHAUST", "instance":1
+                },
+
+                {
+                    "control" : "GAUGE",
+                    "title" : "DC Voltage", "units":"Volts",
+                    "majorDivisions":4, "minorDivisions":5,
+                    "max":16, "min":8,
+                    "ranges" : [
+                        { "min":8,  "max":10, "color":"#F00" },
+                        { "min":10, "max":11, "color":"#FF0" },
+                        { "min":11, "max":13, "color":"#0F0" },
+                        { "min":13, "max":14, "color":"#FF0" },
+                        { "min":14, "max":17, "color":"#F00" }
+                        ],
+                    "format" : "Decimal1",
+                    "top":0, "left" : 300, "width":100,
+                    "parameter":"DC_VOLTAGE","instance": 100
+                },
+
+                {
+                    "control":"GAUGE",
+                    "title":"Port Tachometer", "units":"RPM",
+                    "majorDivisions":5, "minorDivisions":4,
+                    "min":0, "max":5000,
+                    "ranges" : [
+                     { "min":4000, "max":4500, "color":"#FF0" },
+                     { "min":4500, "max":5000, "color":"#F00" }
+                       ],
+                    "format":"Integer",
+                    "top":0, "left":400, "width":100,
+                    "parameter":"TACHOMETER", "instance":100
+                },
+
+                {
+                    "control" : "GAUGE",
+                    "title" : "DC Current", "units":"A",
+                    "majorDivisions":5, "minorDivisions":4,
+                    "min":0, "max":10,
+                    "ranges" : [
+                      { "min":0, "max":6, "color":"#0F0" },
+                      { "min":6, "max":8, "color":"#F80" },
+                      { "min":8, "max":10, "color":"#F00" }
+                    ],
+                    "format" : "Decimal1",
+                    "top":0, "left":500, "width":100,
+                    "parameter":"DC_CURRENT", "instance":100
+                },
+
+                {
+                    "control" : "CLOCK",
+                    "title" : "Time", "units":"UTC",
+                    "top":100, "left" : 0, "width":100,
+                    "parameter":"DATE","timezoneOffset":"UTC","instance": 0
+                },
+
+                {
+                    "control":"GAUGE",
+                    "title":"Port Tachometer", "units":"RPM",
+                    "majorDivisions":5, "minorDivisions":4,
+                    "min":0, "max":5000,
+                    "ranges" : [
+                     { "min":4000, "max":4500, "color":"#FF0" },
+                     { "min":4500, "max":5000, "color":"#F00" }
+                       ],
+                    "format":"Integer",
+                    "top":100, "left":100, "width":100,
+                    "parameter":"TACHOMETER", "instance":100
+                },
+
+                {
+                    "control" : "GAUGE",
+                    "title" : "DC Current", "units":"A",
+                    "majorDivisions":5, "minorDivisions":4,
+                    "min":0, "max":10,
+                    "ranges" : [
+                      { "min":0, "max":6, "color":"#0F0" },
+                      { "min":6, "max":8, "color":"#F80" },
+                      { "min":8, "max":10, "color":"#F00" }
+                    ],
+                    "format" : "Decimal1",
+                    "top":100, "left":200, "width":100,
+                    "parameter":"DC_CURRENT", "instance":100
+                },
+
+                {
+                    "control" : "GAUGE",
+                    "title" : "DC Voltage", "units":"Volts",
+                    "majorDivisions":4, "minorDivisions":5,
+                    "max":16, "min":8,
+                    "ranges" : [
+                        { "min":8,  "max":10, "color":"#F00" },
+                        { "min":10, "max":11, "color":"#FF0" },
+                        { "min":11, "max":13, "color":"#0F0" },
+                        { "min":13, "max":14, "color":"#FF0" },
+                        { "min":14, "max":17, "color":"#F00" }
+                        ],
+                    "format" : "Decimal1",
+                    "top":100, "left" : 300, "width":100,
+                    "parameter":"DC_VOLTAGE","instance": 100
+                },
+
+                {
+                    "control":"GAUGE",
+                    "title":"Port Tachometer", "units":"RPM",
+                    "majorDivisions":5, "minorDivisions":4,
+                    "min":0, "max":5000,
+                    "ranges" : [
+                     { "min":4000, "max":4500, "color":"#FF0" },
+                     { "min":4500, "max":5000, "color":"#F00" }
+                       ],
+                    "format":"Integer",
+                    "top":100, "left":400, "width":100,
+                    "parameter":"TACHOMETER", "instance":100
+                },
+
+                {
+                    "control" : "GAUGE",
+                    "title" : "DC Current", "units":"A",
+                    "majorDivisions":5, "minorDivisions":4,
+                    "min":0, "max":10,
+                    "ranges" : [
+                      { "min":0, "max":6, "color":"#0F0" },
+                      { "min":6, "max":8, "color":"#F80" },
+                      { "min":8, "max":10, "color":"#F00" }
+                    ],
+                    "format" : "Decimal1",
+                    "top":100, "left":500, "width":100,
+                    "parameter":"DC_CURRENT", "instance":100
+                },
+
+
+                {
+                    "control" : "DIGITAL2x1",
+                    "title" : "DC Voltage", "units":"Volts",
+                    "majorDivisions":4, "minorDivisions":5,
+                    "max":16, "min":8,
+                    "ranges" : [
+                        { "min":8,  "max":10, "color":"#F00" },
+                        { "min":10, "max":11, "color":"#FF0" },
+                        { "min":11, "max":13, "color":"#0F0" },
+                        { "min":13, "max":14, "color":"#FF0" },
+                        { "min":14, "max":17, "color":"#F00" }
+                        ],
+                    "format" : "Decimal1",
+                    "top":200, "left" : 0, "width":100,
+                    "parameter":"DC_VOLTAGE","instance": 100
+                },
+
+                {
+                    "control":"DIGITAL2x1",
+                    "title":"Port Tachometer", "units":"RPM",
+                    "majorDivisions":5, "minorDivisions":4,
+                    "min":0, "max":5000,
+                    "ranges" : [
+                     { "min":4000, "max":4500, "color":"#FF0" },
+                     { "min":4500, "max":5000, "color":"#F00" }
+                       ],
+                    "format":"Integer",
+                    "top":200, "left":100, "width":100,
+                    "parameter":"TACHOMETER", "instance":100
+                },
+
+                {
+                    "control" : "DIGITAL2x1",
+                    "title" : "DC Current", "units":"A",
+                    "majorDivisions":5, "minorDivisions":4,
+                    "min":0, "max":10,
+                    "ranges" : [
+                      { "min":0, "max":6, "color":"#0F0" },
+                      { "min":6, "max":8, "color":"#F80" },
+                      { "min":8, "max":10, "color":"#F00" }
+                    ],
+                    "format" : "Decimal1",
+                    "top":200, "left":200, "width":100,
+                    "parameter":"DC_CURRENT", "instance":100
+                },
+
+                {
+                    "control" : "DIGITAL2x1I",
+                    "title" : "DC Voltage", "units":"Volts",
+                    "majorDivisions":4, "minorDivisions":5,
+                    "max":16, "min":8,
+                    "ranges" : [
+                        { "min":8,  "max":10, "color":"#F00" },
+                        { "min":10, "max":11, "color":"#FF0" },
+                        { "min":11, "max":13, "color":"#0F0" },
+                        { "min":13, "max":14, "color":"#FF0" },
+                        { "min":14, "max":17, "color":"#F00" }
+                        ],
+                    "format" : "Integer",
+                    "top":250, "left" : 0, "width":100,
+                    "parameter":"DC_VOLTAGE","instance": 100
+                },
+
+                {
+                    "control":"DIGITAL2x1I",
+                    "title":"Date", "units":"MM/DD/YYYY",
+                    "format" : "mmddyyyy",
+                    "top":250, "left":100, "width":100,
+                    "parameter":"DATE", "instance":0
+                },
+
+                {
+                    "control" : "DIGITAL2x1I",
+                    "title" : "Time", "units":"HH:MM:SS",
+                    "format" : "hhmmssp",
+                    "top":250, "left":200, "width":100,
+                    "parameter":"DATE", "instance":0
+                },
+
+                {
+                    "control" : "DIGITAL1x1",
+                    "title" : "DC Voltage", "units":"Volts",
+                    "majorDivisions":4, "minorDivisions":5,
+                    "max":16, "min":8,
+                    "ranges" : [
+                        { "min":8,  "max":10, "color":"#F00" },
+                        { "min":10, "max":11, "color":"#FF0" },
+                        { "min":11, "max":13, "color":"#0F0" },
+                        { "min":13, "max":14, "color":"#FF0" },
+                        { "min":14, "max":17, "color":"#F00" }
+                        ],
+                    "format" : "Decimal1",
+                    "top":200, "left" : 300, "width":100,
+                    "parameter":"DC_VOLTAGE","instance": 100
+                },
+
+                {
+                    "control":"DIGITAL1x1",
+                    "title":"Port Tachometer", "units":"RPM",
+                    "majorDivisions":5, "minorDivisions":4,
+                    "min":0, "max":5000,
+                    "ranges" : [
+                     { "min":4000, "max":4500, "color":"#FF0" },
+                     { "min":4500, "max":5000, "color":"#F00" }
+                       ],
+                    "format":"Integer",
+                    "top":200, "left":400, "width":100,
+                    "parameter":"TACHOMETER", "instance":100
+                },
+
+                {
+                    "control" : "DIGITAL1x1",
+                    "title" : "DC Current", "units":"A",
+                    "majorDivisions":5, "minorDivisions":4,
+                    "min":0, "max":10,
+                    "ranges" : [
+                      { "min":0, "max":6, "color":"#0F0" },
+                      { "min":6, "max":8, "color":"#F80" },
+                      { "min":8, "max":10, "color":"#F00" }
+                    ],
+                    "format" : "Decimal1",
+                    "top":200, "left":500, "width":100,
+                    "parameter":"DC_CURRENT", "instance":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "Home",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "Combined",
+                    "top":300, "left":0, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "Screen AC#2",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "AC#2",
+                    "top":300, "left":100, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "Screen AC#3",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "AC#3",
+                    "top":300, "left":200, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "AC Monitor",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "AC Monitor",
+                    "top":300, "left":300, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "Tanks",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "Tanks",
+                    "top":300, "left":400, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "DC Breakers",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "DC Breakers",
+                    "top":300, "left":500, "width":100
+                }
+
+            ]
+        },
+
+        { "name" : "AC#2",
+          "backgroundColor": "#111111",
+          "width" : 600,
+          "height" : 350,
+          "controls":
+            [
+                {
+                    "control" : "TEXT4x1",
+                    "title" : "AC#2°",
+                    "color" : "#CCC",
+                    "top":0, "left":200, "width":200
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch\n1/2 Off",
+                    "onTitle" : "Switch\n1/2 On",
+                    "errorTitle" : "Switch\n1/2 Tripped",
+                    "title" : "Switch 1/2",
+                    "offColor": "red",
+                    "onColor": "green",
+                    "errorColor": "yellow",
+                    "parameter" : "BREAKER", "instance" : 65, "channel" : 1,
+                    "top":50, "left":0, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch\n3/4 Off",
+                    "onTitle" : "Switch\n3/4 On",
+                    "errorTitle" : "Switch\n3/4 Tripped",
+                    "title" : "Switch 3/4",
+                    "offColor": "red",
+                    "onColor": "orange",
+                    "errorColor": "yellow",
+                    "parameter" : "BREAKER", "instance" : 65, "channel" : 3,
+                    "top":50, "left":100, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch\n5/6 Off",
+                    "onTitle" : "Switch\n5/6 On",
+                    "errorTitle" : "Switch\n5/6 Tripped",
+                    "title" : "Switch 5/6",
+                    "offColor": "red",
+                    "onColor": "green",
+                    "errorColor": "yellow",
+                    "parameter" : "BREAKER", "instance" : 65, "channel" : 5,
+                    "top":50, "left":200, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch\n7/8 Off",
+                    "onTitle" : "Switch\n7/8 On",
+                    "errorTitle" : "Switch\n7/8 Tripped",
+                    "title" : "Switch 7/8",
+                    "offColor": "red",
+                    "onColor": "green",
+                    "errorColor": "yellow",
+                    "parameter" : "BREAKER", "instance" : 65, "channel" : 7,
+                    "top":50, "left":300, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch\n9/10 Off",
+                    "onTitle" : "Switch\n9/10 On",
+                    "errorTitle" : "Switch\n9/10 Tripped",
+                    "title" : "Switch 9/10",
+                    "offColor": "red",
+                    "onColor": "green",
+                    "errorColor": "yellow",
+                    "parameter" : "BREAKER", "instance" : 65, "channel" : 9,
+                    "top":50, "left":400, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch\n11/12 Off",
+                    "onTitle" : "Switch\n11/12 On",
+                    "errorTitle" : "Switch\n11/12 Tripped",
+                    "title" : "Switch 11/12",
+                    "offColor": "red",
+                    "onColor": "green",
+                    "errorColor": "yellow",
+                    "parameter" : "BREAKER", "instance" : 65, "channel" : 11,
+                    "top":100, "left":0, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 13 Off",
+                    "onTitle" : "Switch 13 On",
+                    "errorTitle" : "Switch 13 Tripped",
+                    "title" : "Switch 13",
+                    "offColor": "red",
+                    "onColor": "green",
+                    "errorColor": "yellow",
+                    "parameter" : "BREAKER", "instance" : 65, "channel" : 13,
+                    "top":100, "left":100, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 14 Off",
+                    "onTitle" : "Switch 14 On",
+                    "errorTitle" : "Switch 14 Tripped",
+                    "title" : "Switch 14",
+                    "offColor": "red",
+                    "onColor": "green",
+                    "errorColor": "yellow",
+                    "parameter" : "BREAKER", "instance" : 65, "channel" : 14,
+                    "top":100, "left":200, "width":100
+                },
+
+                {
+                    "control" : "HR_SW",
+                    "offTitle" : "Switch\n15 Off",
+                    "onTitle" : "Switch\n15 On",
+                    "errorTitle" : "Switch\n15 Tripped",
+                    "title" : "Switch\n15",
+                    "offColor": "red",
+                    "onColor": "green",
+                    "errorColor": "yellow",
+                    "parameter" : "BREAKER", "instance" : 65, "channel" : 15,
+                    "top":100, "left":300, "width":25
+                },
+
+                {
+                    "control" : "HR_SW",
+                    "offTitle" : "Switch\n16 Off",
+                    "onTitle" : "Switch\n16 On",
+                    "errorTitle" : "Switch\n16 Tripped",
+                    "title" : "Switch\n16",
+                    "offColor": "red",
+                    "onColor": "green",
+                    "errorColor": "yellow",
+                    "parameter" : "BREAKER", "instance" : 65, "channel" : 16,
+                    "top":100, "left":325, "width":25
+                },
+
+                {
+                    "control" : "MOMENTARY_HR_SW",
+                    "offTitle" : "Switch\n17 Off",
+                    "onTitle" : "Switch\n17 On",
+                    "errorTitle" : "Switch\n17 Tripped",
+                    "title" : "Switch\n17",
+                    "offColor": "red",
+                    "onColor": "green",
+                    "errorColor": "yellow",
+                    "parameter" : "BREAKER", "instance" : 65, "channel" : 17,
+                    "top":100, "left":350, "width":25
+                },
+
+                {
+                    "control" : "MOMENTARY_HR_SW",
+                    "offTitle" : "Switch\n18 Off",
+                    "onTitle" : "Switch\n18 On",
+                    "errorTitle" : "Switch\n18 Tripped",
+                    "title" : "Switch\n18",
+                    "offColor": "red",
+                    "onColor": "green",
+                    "errorColor": "yellow",
+                    "parameter" : "BREAKER", "instance" : 65, "channel" : 18,
+                    "top":100, "left":375, "width":25
+                },
+
+                {
+                    "control" : "HR_SW",
+                    "offTitle" : "Switch\n19 Off",
+                    "onTitle" : "Switch\n19 On",
+                    "errorTitle" : "Switch\n19 Tripped",
+                    "title" : "Switch\n19",
+                    "offColor": "red",
+                    "onColor": "green",
+                    "errorColor": "yellow",
+                    "parameter" : "BREAKER", "instance" : 65, "channel" : 19,
+                    "top":100, "left":400, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 15 Off",
+                    "onTitle" : "Switch 15 On",
+                    "errorTitle" : "Switch 15 Tripped",
+                    "title" : "Switch 15",
+                    "offColor": "red",
+                    "onColor": "green",
+                    "errorColor": "yellow",
+                    "parameter" : "BREAKER", "instance" : 65, "channel" : 15,
+                    "top":150, "left":0, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 16 Off",
+                    "onTitle" : "Switch 16 On",
+                    "errorTitle" : "Switch 16 Tripped",
+                    "title" : "Switch 16",
+                    "offColor": "red",
+                    "onColor": "green",
+                    "errorColor": "yellow",
+                    "parameter" : "BREAKER", "instance" : 65, "channel" : 16,
+                    "top":150, "left":100, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 17 Off",
+                    "onTitle" : "Switch 17 On",
+                    "errorTitle" : "Switch 17 Tripped",
+                    "title" : "Switch 17",
+                    "offColor": "red",
+                    "onColor": "green",
+                    "errorColor": "yellow",
+                    "parameter" : "BREAKER", "instance" : 65, "channel" : 17,
+                    "top":150, "left":200, "width":100
+                },
+
+                {
+                    "control" : "MOMENTARY_PUSH_BUTTON2x1",
+                    "offTitle" : "SW 15-17\nOff",
+                    "onTitle" : "SW 15-17\nOff",
+                    "errorTitle" : "SW 15-17\nOff",
+                    "title" : "Group 1",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "yellow",
+                    "parameter" : "SWITCH_GROUP", "instance" : 253, "channel" : 2,
+                    "top":150, "left":300, "width":100
+                },
+
+                {
+                    "control" : "INDICATOR2x1",
+                    "offTitle" : "Switch 15\nOff",
+                    "onTitle" : "Switch 15\nOn",
+                    "errorTitle" : "Switch 15\nTripped",
+                    "title" : "Switch 15",
+                    "offColor": "red",
+                    "onColor": "green",
+                    "errorColor": "yellow",
+                    "parameter" : "BREAKER", "instance" : 65, "channel" : 15,
+                    "top":200, "left":0, "width":100
+                },
+
+                {
+                    "control" : "INDICATOR2x1",
+                    "offTitle" : "Switch 16\nOff",
+                    "onTitle" : "Switch 16\nOn",
+                    "errorTitle" : "Switch 16\nTripped",
+                    "title" : "Switch 16",
+                    "offColor": "red",
+                    "onColor": "green",
+                    "errorColor": "yellow",
+                    "parameter" : "BREAKER", "instance" : 65, "channel" : 16,
+                    "top":200, "left":100, "width":100
+                },
+
+                {
+                    "control" : "INDICATOR2x1",
+                    "offTitle" : "Switch 17 Off",
+                    "onTitle" : "Switch 17  On",
+                    "errorTitle" : "Switch 17 Tripped",
+                    "title" : "Switch 17",
+                    "offColor": "red",
+                    "onColor": "green",
+                    "errorColor": "yellow",
+                    "parameter" : "BREAKER", "instance" : 65, "channel" : 17,
+                    "top":200, "left":200, "width":100
+                },
+
+                {
+                    "control" : "MOMENTARY_PUSH_BUTTON2x1",
+                    "offTitle" : "SW 15-17\nOn",
+                    "onTitle" : "SW 15-17\nOn",
+                    "errorTitle" : "SW 15-17\nOn",
+                    "title" : "Group 1 On",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "yellow",
+                    "parameter" : "SWITCH_GROUP", "instance" : 253, "channel" : 1,
+                    "top":200, "left":300, "width":100
+                },
+
+                {
+                    "control" : "INDICATOR4x1",
+                    "offTitle" : "Switch 15 Off",
+                    "onTitle" : "Switch 15 On",
+                    "errorTitle" : "Switch 15 Tripped",
+                    "title" : "Switch 15",
+                    "offColor": "red",
+                    "onColor": "green",
+                    "errorColor": "yellow",
+                    "parameter" : "BREAKER", "instance" : 65, "channel" : 15,
+                    "top":250, "left":0, "width":100
+                },
+
+                {
+                    "control" : "INDICATOR4x1",
+                    "offTitle" : "Switch 16 Off",
+                    "onTitle" : "Switch 16 On",
+                    "errorTitle" : "Switch 16 Tripped",
+                    "title" : "Switch 16",
+                    "offColor": "red",
+                    "onColor": "green",
+                    "errorColor": "yellow",
+                    "parameter" : "BREAKER", "instance" : 65, "channel" : 16,
+                    "top":250, "left":100, "width":100
+                },
+
+                {
+                    "control" : "INDICATOR4x1",
+                    "offTitle" : "Switch 17 Off",
+                    "onTitle" : "Switch 17  On",
+                    "errorTitle" : "Switch 17 Tripped",
+                    "title" : "Switch 17",
+                    "offColor": "red",
+                    "onColor": "green",
+                    "errorColor": "yellow",
+                    "parameter" : "BREAKER", "instance" : 65, "channel" : 17,
+                    "top":250, "left":200, "width":100
+                },
+
+                {
+                    "control" : "INDICATOR4x1",
+                    "offTitle" : "Switch 18 Off",
+                    "onTitle" : "Switch 18 On",
+                    "errorTitle" : "Switch 18 Tripped",
+                    "title" : "Switch 18",
+                    "offColor": "red",
+                    "onColor": "green",
+                    "errorColor": "yellow",
+                    "parameter" : "BREAKER", "instance" : 65, "channel" : 18,
+                    "top":250, "left":300, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "Home",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "Combined",
+                    "top":300, "left":0, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "Screen AC#2",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "AC#2",
+                    "top":300, "left":100, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "Screen AC#3",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "AC#3",
+                    "top":300, "left":200, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "AC Monitor",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "AC Monitor",
+                    "top":300, "left":300, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "Tanks",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "Tanks",
+                    "top":300, "left":400, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "DC Breakers",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "DC Breakers",
+                    "top":300, "left":500, "width":100
+                }
+
+            ]
+        },
+
+        { "name" : "AC#3",
+          "backgroundColor": "#008000",
+          "width" : 600,
+          "height" : 350,
+          "controls":
+            [
+                {
+                    "control" : "TEXT2x1",
+                    "title" : "AC#3",
+                    "color" : "#FFF",
+                    "top":0, "left":200, "width":200
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 1/2 Off",
+                    "onTitle" : "Switch 1/2 On",
+                    "errorTitle" : "Switch 1/2\nTripped",
+                    "title" : "Switch 1/2",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter" : "BREAKER", "instance" : 66, "channel" : 1,
+                    "top":50, "left":50, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 3/4 Off",
+                    "onTitle" : "Switch 3/4 On",
+                    "errorTitle" : "Switch 3/4\nTripped",
+                    "title" : "Switch 3/4",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter" : "BREAKER", "instance" : 66, "channel" : 3,
+                    "top":50, "left":150, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 5 Off",
+                    "onTitle" : "Switch 5 On",
+                    "errorTitle" : "Switch 5\nTripped",
+                    "title" : "Switch 5",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter" : "BREAKER", "instance" : 66, "channel" : 5,
+                    "top":50, "left":250, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 6 Off",
+                    "onTitle" : "Switch 6 On",
+                    "errorTitle" : "Switch 6\nTripped",
+                    "title" : "Switch 6",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter" : "BREAKER", "instance" : 66, "channel" : 6,
+                    "top":50, "left":350, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 7 Off",
+                    "onTitle" : "Switch 7 On",
+                    "errorTitle" : "Switch 7\nTripped",
+                    "title" : "Switch 7",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter" : "BREAKER", "instance" : 66, "channel" : 7,
+                    "top":50, "left":450, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 8 Off",
+                    "onTitle" : "Switch 8 On",
+                    "errorTitle" : "Switch 8\nTripped",
+                    "title" : "Switch 8",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter" : "BREAKER", "instance" : 66, "channel" : 8,
+                    "top":100, "left":50, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 9 Off",
+                    "onTitle" : "Switch 9 On",
+                    "errorTitle" : "Switch 9\nTripped",
+                    "title" : "Switch 9",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter" : "BREAKER", "instance" : 66, "channel" : 9,
+                    "top":100, "left":150, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 10 Off",
+                    "onTitle" : "Switch 10 On",
+                    "errorTitle" : "Switch 10\nTripped",
+                    "title" : "Switch 10",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter" : "BREAKER", "instance" : 66, "channel" : 10,
+                    "top":100, "left":250, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 11 Off",
+                    "onTitle" : "Switch 11 On",
+                    "errorTitle" : "Switch 11\nTripped",
+                    "title" : "Switch 11",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter" : "BREAKER", "instance" : 66, "channel" : 11,
+                    "top":100, "left":350, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 12 Off",
+                    "onTitle" : "Switch 12 On",
+                    "errorTitle" : "Switch 12\nTripped",
+                    "title" : "Switch 12",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter" : "BREAKER", "instance" : 66, "channel" : 12,
+                    "top":100, "left":450, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 13 Off",
+                    "onTitle" : "Switch 13 On",
+                    "errorTitle" : "Switch 13\nTripped",
+                    "title" : "Switch 13",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter" : "BREAKER", "instance" : 66, "channel" : 13,
+                    "top":150, "left":50, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 14 Off",
+                    "onTitle" : "Switch 14 On",
+                    "errorTitle" : "Switch 14\nTripped",
+                    "title" : "Switch 14",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter" : "BREAKER", "instance" : 66, "channel" : 14,
+                    "top":150, "left":150, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 15 Off",
+                    "onTitle" : "Switch 15 On",
+                    "errorTitle" : "Switch 15\nTripped",
+                    "title" : "Switch 15",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter" : "BREAKER", "instance" : 66, "channel" : 15,
+                    "top":150, "left":250, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 16 Off",
+                    "onTitle" : "Switch 16 On",
+                    "errorTitle" : "Switch 16\nTripped",
+                    "title" : "Switch 16",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter" : "BREAKER", "instance" : 66, "channel" : 16,
+                    "top":150, "left":350, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 17 Off",
+                    "onTitle" : "Switch 17 On",
+                    "errorTitle" : "Switch 17\nTripped",
+                    "title" : "Switch 17",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter" : "BREAKER", "instance" : 66, "channel" : 17,
+                    "top":150, "left":450, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 18 Off",
+                    "onTitle" : "Switch 18 On",
+                    "errorTitle" : "Switch 18\nTripped",
+                    "title" : "Switch 18",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter" : "BREAKER", "instance" : 66, "channel" : 18,
+                    "top":200, "left":50, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 19 Off",
+                    "onTitle" : "Switch 19 On",
+                    "errorTitle" : "Switch 19\nTripped",
+                    "title" : "Switch 19",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter" : "BREAKER", "instance" : 66, "channel" : 19,
+                    "top":200, "left":150, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "Home",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "Combined",
+                    "top":300, "left":0, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "Screen AC#2",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "AC#2",
+                    "top":300, "left":100, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "Screen AC#3",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "AC#3",
+                    "top":300, "left":200, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "AC Monitor",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "AC Monitor",
+                    "top":300, "left":300, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "Tanks",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "Tanks",
+                    "top":300, "left":400, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "DC Breakers",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "DC Breakers",
+                    "top":300, "left":500, "width":100
+                }
+
+            ]
+        },
+
+        { "name" : "AC Monitor",
+          "backgroundImage" : "selene profile.png",
+          "width" : 600,
+          "height" : 350,
+          "controls":
+            [
+                {
+                    "control" : "TEXT4x1",
+                    "title" : "AC Monitor",
+                    "color" : "#FFF",
+                    "top":0, "left":200, "width":200
+                },
+
+                {
+                    "control" : "GAUGE",
+                    "title" : "AC Voltage", "units":"Volts",
+                    "majorDivisions":4, "minorDivisions":4,
+                    "min":100, "max":140,
+                    "ranges" : [
+                        { "min":100, "max":105, "color":"#FF0000" },
+                        { "min":105, "max":110, "color":"#FFFF00" },
+                        { "min":110, "max":130, "color":"#00FF00" },
+                        { "min":130, "max":135, "color":"#FFFF00" },
+                        { "min":135, "max":140, "color":"#FF0000" }
+                        ],
+                    "format" : "Decimal1",
+                    "top":50, "left" : 0, "width":200,
+                    "parameter":"UTIL_AV_LN_VOLTAGE", "instance": 1
+                },
+
+                {
+                    "control" : "GAUGE",
+                    "title" : "AC Frequency", "units":"Hz",
+                    "majorDivisions":4, "minorDivisions":2,
+                     "min":58,"max":62,
+                    "ranges" : [
+                        { "min":58, "max":59, "color":"#FFFF00" },
+                        { "min":59, "max":61, "color":"#00FF00" },
+                        { "min":61, "max":62, "color":"#FFFF00" }
+                        ],
+                    "format" : "Decimal1",
+                    "top":50, "left" : 200, "width":200,
+                    "parameter":"UTIL_AV_FREQUENCY", "instance": 1
+                },
+
+                {
+                    "control" : "GAUGE",
+                    "title" : "AC Current", "units":"Amps",
+                    "majorDivisions":4, "minorDivisions":2,
+                     "min":-100,"max":100,
+                    "format" : "Decimal1",
+                    "top":50, "left" : 400, "width":200,
+                    "parameter":"UTIL_AV_CURRENT", "instance": 1
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "Home",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "Combined",
+                    "top":300, "left":0, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "Screen AC#2",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "AC#2",
+                    "top":300, "left":100, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "Screen AC#3",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "AC#3",
+                    "top":300, "left":200, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "AC Monitor",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "AC Monitor",
+                    "top":300, "left":300, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "Tanks",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "Tanks",
+                    "top":300, "left":400, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "DC Breakers",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "DC Breakers",
+                    "top":300, "left":500, "width":100
+                }
+
+
+            ]
+        },
+
+        { "name" : "Tanks",
+          "backgroundColor": "#101010",
+          "width" : 600,
+          "height" : 350,
+          "controls":
+            [
+                {
+                    "control" : "TEXT4x1",
+                    "title" : "Tanks",
+                    "color" : "#FFF",
+                    "top":0, "left":200, "width":200
+                },
+
+                {
+                    "control" : "DIGITAL1x1",
+                    "title" : "Fuel 0 Capacity", "units":"Gallons",
+                    "format" : "Decimal1",
+                    "top":50, "left" : 0, "width":100,
+                    "parameter":"TANK_CAPACITY", "instance": 0, "source": 0
+                },
+
+                {
+                    "control" : "DIGITAL1x1",
+                    "title" : "Fuel 0 Level", "units":"Percent",
+                    "format" : "Percent",
+                    "top":50, "left" : 100, "width":100,
+                    "parameter":"TANK_LEVEL", "instance": 0, "source": 0
+                },
+
+                {
+                    "control" : "DIGITAL1x1",
+                    "title" : "Fuel 0 Remaining", "units":"Gallons",
+                    "format" : "Decimal1",
+                    "top":50, "left" : 200, "width":100,
+                    "parameter":"TANK_REMAINING", "instance": 0, "source": 0
+                },
+
+                {
+                    "control" : "DIGITAL2x1",
+                    "title" : "Pitch", "units":"Degrees",
+                    "format" : "Decimal1Degrees",
+                    "top":150, "left" : 0, "width":100,
+                    "parameter":"PITCH", "instance": 0
+                },
+
+                {
+                    "control" : "DIGITAL2x1",
+                    "title" : "Roll", "units":"Degrees",
+                    "format" : "Decimal1Degrees",
+                    "top":200, "left" : 0, "width":100,
+                    "parameter":"ROLL", "instance": 0
+                },
+
+                {
+                    "control" : "DIGITAL2x1",
+                    "title" : "Humidity", "units":"Percent",
+                    "format" : "Percent",
+                    "top":250, "left" : 0, "width":100,
+                    "parameter":"HUMIDITY_OUTSIDE", "instance": 0, "source" : 1
+                },
+
+                {
+                    "control" : "DIGITAL2x1",
+                    "title" : "Dew Point", "units":"°C",
+                    "format" : "Decimal1Degrees",
+                    "top":250, "left" : 100, "width":100,
+                    "parameter":"DEW_POINT", "instance": 0
+                },
+
+                {
+                    "control" : "DIGITAL2x1",
+                    "title" : "WSO Temperature", "units":"°F",
+                    "format" : "Decimal1Degrees",
+                    "top":250, "left" : 200, "width":100,
+                    "parameter":"TEMPERATURE_OUTSIDE", "instance": 0, "source" : 1
+                },
+
+                {
+                    "control" : "GAUGE",
+                    "title" : "Fuel 0 Level", "units":"Percent",
+                    "majorDivisions":5, "minorDivisions":2,
+                     "min":0,"max":100,
+                    "ranges" : [
+                        { "min":0, "max":10, "color":"#FF4000" }
+                        ],
+                    "format" : "Percent",
+                    "top":150, "left" : 100, "width":100,
+                    "parameter":"TANK_LEVEL", "instance": 0, "source": 0
+                },
+
+                {
+                    "control" : "GAUGE",
+                    "title" : "Fuel 0 Remaining", "units":"Gallons",
+                    "majorDivisions":5, "minorDivisions":2,
+                     "min":0,"max":1000,
+                    "ranges" : [
+                        { "min":0, "max":100, "color":"#FF4000" },
+                        { "min":100, "max":200,"color":"#FFFF00" },
+                        { "min":200, "max":1000,"color":"#40FF00" }
+                        ],
+                    "format" : "Decimal1",
+                    "top":150, "left" : 200, "width":100,
+                    "parameter":"TANK_REMAINING", "instance": 0, "source": 0
+                },
+
+                {
+                    "control" : "DIGITAL1x1",
+                    "title" : "Fuel 2 Capacity", "units":"Gallons",
+                    "format" : "Decimal1",
+                    "top":50, "left" : 300, "width":100,
+                    "parameter":"TANK_CAPACITY", "instance": 2, "source": 0
+                },
+
+                {
+                    "control" : "DIGITAL1x1",
+                    "title" : "Fuel 2 Level", "units":"Percent",
+                    "format" : "Percent",
+                    "top":50, "left" : 400, "width":100,
+                    "parameter":"TANK_LEVEL", "instance": 2, "source": 0
+                },
+
+                {
+                    "control" : "DIGITAL1x1",
+                    "title" : "Fuel 2 Remaining", "units":"Gallons",
+                    "format" : "Decimal1",
+                    "top":50, "left" : 500, "width":100,
+                    "parameter":"TANK_REMAINING", "instance": 2, "source": 0
+                },
+
+                {
+                    "control" : "DIGITAL2x1",
+                    "title" : "Variation", "units":"Degrees",
+                    "format" : "Decimal1EWDegrees",
+                    "top":150, "left" : 300, "width":100,
+                    "parameter":"VARIATION", "instance": 0
+                },
+
+                {
+                    "control" : "DIGITAL1x1",
+                    "title" : "Position", "units":"Lat Long",
+                    "format" : "Lat Long Deg",
+                    "top":200, "left" : 300, "width":100,
+                    "parameter":"LAT_LON", "instance": 0
+                },
+
+                {
+                    "control" : "BAR_GRAPH",
+                    "title" : "Fuel 2 Level", "units":"Percent",
+                    "majorDivisions":5, "minorDivisions":2,
+                     "min":0,"max":100,
+                    "ranges" : [
+                        { "min":0, "max":10, "color":"#FF4000" }
+                        ],
+                    "format" : "Percent",
+                    "top":150, "left" : 400, "width":75,
+                    "parameter":"TANK_LEVEL", "instance": 2, "source": 0
+                },
+
+                {
+                    "control" : "BAR_GRAPH",
+                    "title" : "Fuel 2 Remaining", "units":"Gallons",
+                    "majorDivisions":5, "minorDivisions":2,
+                     "min":0,"max":1000,
+                    "ranges" : [
+                        { "min":0, "max":50, "color":"#FF4000" },
+                        { "min":50, "max":200,"color":"#FFFF00" },
+                        { "min":200, "max":1000,"color":"#40FF00" }
+                        ],
+                    "format" : "Decimal1",
+                    "top":150, "left" : 500, "width":75,
+                    "parameter":"TANK_REMAINING", "instance": 2, "source": 0
+                },
+                
+                {
+                    "control" : "AB2x1",
+                    "title" : "Home",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "Combined",
+                    "top":300, "left":0, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "Screen AC#2",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "AC#2",
+                    "top":300, "left":100, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "Screen AC#3",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "AC#3",
+                    "top":300, "left":200, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "AC Monitor",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "AC Monitor",
+                    "top":300, "left":300, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "Tanks",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "Tanks",
+                    "top":300, "left":400, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "DC Breakers",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "DC Breakers",
+                    "top":300, "left":500, "width":100
+                }
+
+            ]
+        },
+
+        { "name" : "DC Breakers",
+          "backgroundColor": "#202020",
+          "width" : 600,
+          "height" : 350,
+          "controls":
+            [
+                {
+                    "control" : "TEXT4x1",
+                    "title" : "Octoplex DC16",
+                    "color" : "#FFF",
+                    "top":0, "left":200, "width":200
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 1 Off",
+                    "onTitle" : "Switch 1 On",
+                    "errorTitle" : "Switch 1\nTripped",
+                    "title" : "Switch 1",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter" : "BREAKER", "instance" : 32, "channel" : 1,
+                    "top":50, "left":50, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 2 Off",
+                    "onTitle" : "Switch 2 On",
+                    "errorTitle" : "Switch 2\nTripped",
+                    "title" : "Switch 2",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter" : "BREAKER", "instance" : 32, "channel" : 2,
+                    "top":50, "left":150, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 3 Off",
+                    "onTitle" : "Switch 3 On",
+                    "errorTitle" : "Switch 3\nTripped",
+                    "title" : "Switch 3",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter" : "BREAKER", "instance" : 32, "channel" : 3,
+                    "top":50, "left":250, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 4 Off",
+                    "onTitle" : "Switch 4 On",
+                    "errorTitle" : "Switch 4\nTripped",
+                    "title" : "Switch 4",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter" : "BREAKER", "instance" : 32, "channel" : 4,
+                    "top":50, "left":350, "width":100
+                },
+
+                {
+                    "control" : "PUSH_BUTTON2x1",
+                    "offTitle" : "Switch 5 Off",
+                    "onTitle" : "Switch 5 On",
+                    "errorTitle" : "Switch 5\nTripped",
+                    "title" : "Switch 5",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter" : "BREAKER", "instance" : 32, "channel" : 5,
+                    "top":50, "left":450, "width":100
+                },
+
+                {
+                    "control" : "TEXT4x1",
+                    "title" : "Ron's CLMD12",
+                    "color" : "#FFF",
+                    "top":100, "left":200, "width":200
+                },
+
+                {
+                    "control" : "INDICATOR2x1",
+                    "offTitle" : "Switch 1 Off",
+                    "onTitle" : "Switch 1 On",
+                    "errorTitle" : "Switch 1\nTripped",
+                    "title" : "Switch 1",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter":"INDICATOR", "instance": 45, "channel" : 1,
+                    "top":150, "left" : 50, "width":100
+                },
+
+                {
+                    "control" : "INDICATOR2x1",
+                    "offTitle" : "Switch 2 Off",
+                    "onTitle" : "Switch 2 On",
+                    "errorTitle" : "Switch 2\nTripped",
+                    "title" : "Switch 2",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter":"INDICATOR", "instance": 45, "channel" : 2,
+                    "top":150, "left" : 150, "width":100
+                },
+
+                {
+                    "control" : "INDICATOR2x1",
+                    "offTitle" : "Switch 3 Off",
+                    "onTitle" : "Switch 3 On",
+                    "errorTitle" : "Switch 3\nTripped",
+                    "title" : "Switch 3",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter":"INDICATOR", "instance": 45, "channel" : 3,
+                    "top":150, "left" : 250, "width":100
+                },
+
+                {
+                    "control" : "INDICATOR2x1",
+                    "offTitle" : "Switch 4 Off",
+                    "onTitle" : "Switch 4 On",
+                    "errorTitle" : "Switch 4\nTripped",
+                    "title" : "Switch 4",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter":"INDICATOR", "instance": 45, "channel" : 4,
+                    "top":150, "left" : 350, "width":100
+                },
+
+                {
+                    "control" : "INDICATOR2x1",
+                    "offTitle" : "Switch 5 Off",
+                    "onTitle" : "Switch 5 On",
+                    "errorTitle" : "Switch 5\nTripped",
+                    "title" : "Switch 5",
+                    "offColor": "black",
+                    "onColor": "green",
+                    "errorColor": "red",
+                    "parameter":"INDICATOR", "instance": 45, "channel" : 5,
+                    "top":150, "left" : 450, "width":100
+                },
+
+                {
+                    "control" : "DIGITAL2x1",
+                    "title" : "Current", "units":"Amps",
+                    "format" : "Decimal2",
+                    "parameter":"SWITCH_CURRENT", "instance": 45, "channel" : 1,
+                    "top":200, "left" : 50, "width":100
+                },
+
+                {
+                    "control" : "DIGITAL2x1",
+                    "title" : "Current", "units":"Amps",
+                    "format" : "Decimal2",
+                    "parameter":"SWITCH_CURRENT", "instance": 45, "channel" : 2,
+                    "top":200, "left" : 150, "width":100
+                },
+
+                {
+                    "control" : "DIGITAL2x1",
+                    "title" : "Current", "units":"Amps",
+                    "format" : "Decimal2",
+                    "parameter":"SWITCH_CURRENT", "instance": 45, "channel" : 3,
+                    "top":200, "left" : 250, "width":100
+                },
+
+                {
+                    "control" : "DIGITAL2x1",
+                    "title" : "Current", "units":"Amps",
+                    "format" : "Decimal2",
+                    "parameter":"SWITCH_CURRENT", "instance": 45, "channel" : 4,
+                    "top":200, "left" : 350, "width":100
+                },
+
+                {
+                    "control" : "DIGITAL2x1",
+                    "title" : "Current", "units":"Amps",
+                    "format" : "Decimal2",
+                    "parameter":"SWITCH_CURRENT", "instance": 45, "channel" : 5,
+                    "top":200, "left" : 450, "width":100
+                },
+
+                {
+                    "control" : "DIGITAL2x1",
+                    "title" : "Voltage", "units":"Volts",
+                    "format" : "Decimal2",
+                    "parameter":"SWITCH_VOLTAGE", "instance": 45, "channel" : 1,
+                    "top":250, "left" : 50, "width":100
+                },
+
+                {
+                    "control" : "DIGITAL2x1",
+                    "title" : "Voltage", "units":"Volts",
+                    "format" : "Decimal2",
+                    "parameter":"SWITCH_VOLTAGE", "instance": 45, "channel" : 2,
+                    "top":250, "left" : 150, "width":100
+                },
+
+                {
+                    "control" : "DIGITAL2x1",
+                    "title" : "Voltage", "units":"Volts",
+                    "format" : "Decimal2",
+                    "parameter":"SWITCH_VOLTAGE", "instance": 45, "channel" : 3,
+                    "top":250, "left" : 250, "width":100
+                },
+
+                {
+                    "control" : "DIGITAL2x1",
+                    "title" : "Voltage", "units":"Volts",
+                    "format" : "Decimal2",
+                    "parameter":"SWITCH_VOLTAGE", "instance": 45, "channel" : 4,
+                    "top":250, "left" : 350, "width":100
+                },
+
+                {
+                    "control" : "DIGITAL2x1",
+                    "title" : "Voltage", "units":"Volts",
+                    "format" : "Decimal2",
+                    "parameter":"SWITCH_VOLTAGE", "instance": 45, "channel" : 5,
+                    "top":250, "left" : 450, "width":100
+                },
+
+
+
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "Home",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "Combined",
+                    "top":300, "left":0, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "Screen AC#2",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "AC#2",
+                    "top":300, "left":100, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "Screen AC#3",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "AC#3",
+                    "top":300, "left":200, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "AC Monitor",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "AC Monitor",
+                    "top":300, "left":300, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "Tanks",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "Tanks",
+                    "top":300, "left":400, "width":100
+                },
+
+                {
+                    "control" : "AB2x1",
+                    "title" : "DC Breakers",
+                    "parameter" : "SCREEN_SELECT", "screenName" : "DC Breakers",
+                    "top":300, "left":500, "width":100
+                }
+
+
+            ]
+        }
+
+    ]
+}

@@ -1,0 +1,381 @@
+// File: src/components/css/component.sass
+// Note: SVG and CSS styles guide for N2KView monitoring & control components
+// Date: 03/13/2020
+//..............................................................................
+@import './normalize'
+@import './animate'
+@import './maretron-bulma.sass'
+@import './color-wheel'
+   
+// SVG containers
+//..............................................................................
+.svg-icon
+  // Monochromatic color
+  //..............................................................................
+  // background-color: $baseColor 
+  
+  // background-color: $lightBase
+  // background-color: $darkBase
+
+  // background-color: $lightestBase
+  // background-color: $darkestBase
+
+  // background-color: $toneBase
+  // background-color: $alphaBase
+
+  
+  // Complementary color
+  //..............................................................................
+  // background-color: $secondColor
+
+  // background-color: $lightSecond
+  // background-color: $darkSecond
+
+  // background-color: $lightestSecond
+  // background-color: $darkestSecond
+
+
+  // Analogous or Triad color
+  //..............................................................................
+  // background-color: $thirdColor
+
+  // background-color: $lightThird
+  // background-color: $darkThird
+  // background-color: $lightestThird
+  // background-color: $darkestThird
+
+  // background: url("../images/octoplex-logo-oneline.png"), linear-gradient(white, skyblue, orange)
+  // background: url("../images/octoplex-logo-primary-black.png"), linear-gradient(white, skyblue, orange)
+  // background: url("../images/octoplex-logo-primary.png"), linear-gradient(white, skyblue, orange)
+  // background: url("../images/octoplex-logo-stacked.png"), radial-gradient(white, skyblue, orange)
+  // background-repeat: no-repeat, repeat
+  
+  color: $darkBase
+  cursor: default
+  text-rendering: optimizedLegibility
+  
+  &.action-button
+    //...  
+  &.bar-graph
+    //...
+  &.clock
+    //...
+  &.digital
+    //...
+  &.digital-invisible
+    //... 
+  &.gauge
+    //... 
+  &.hr-switch
+    //... 
+  &.indicator
+    //... 
+  &.push-button-colored
+    //...
+  &.tank
+    //...
+  &.text
+    //... 
+
+
+// SVG components
+//..............................................................................
+.active-button,
+  fill: url('#defaultGrad')
+  stroke: none
+ 
+.bar-graph,
+  fill: #000
+  stroke: none     
+    
+.clock,
+  stroke-linecap: round
+  
+  &.hour-hand,
+    stroke: rgb(255, 215, 0) 
+    stroke-width: 1
+  
+  &.minute-hand
+    stroke: rgb(255, 215, 0)
+    stroke-width: 0.75
+    stroke-opacity: 0.95
+  
+.digital,
+  //... 
+.digital-invisible,
+  //... 
+.gauge,
+  //... 
+.hr-switch,
+  //... 
+.indicator,
+  //... 
+.push-button-colored,
+//...
+.tank
+  //...    
+.text 
+  fill-opacity: 1
+  stroke-opacity: 1
+ 
+
+// SVG fragments
+//..............................................................................  
+.breaker-decoration-bottom
+  fill: #FF0
+  stroke: #000
+  stroke-width: 0.3
+  text-anchor: middle
+  font-size: 0.6rem
+  font-weight: bold
+
+.breaker-decoration-top
+  fill: #FF0
+  stroke: #000
+  stroke-width: 0.3
+  text-anchor: end
+  font-size: 0.6rem
+  font-weight: bold
+
+
+.carling-label
+  filter: url(#glow)
+  stroke: currentColor
+  stroke-width: 0.05
+  text-anchor: middle
+  font-family: Brush Script MT, Brush Script, Segoe Script, cursive
+  font-weight: 600
+  text-shadow: -0.1px -0.1px invert($baseColor)
+  
+  &.bar-graph
+    transform: translate(-14px,22px) rotate(-90deg)
+    font-size: 0.1rem
+  
+  &.clock
+    font-size: 0.075rem
+   
+  &.digital
+    font-size: 0.25rem
+    
+  &.gauge
+    font-size: 0.075rem
+    
+    
+  &.tank    
+    font-size: 0.15rem
+
+  
+.component-button
+  fill: red
+  
+  &.title
+    font-size: 0.45rem
+
+
+.component-filter
+  fill: url(#three-stops)
+  fill-opacity: 0.6
+  stroke-width: 2
+  stroke-opacity: 0.4
+
+  &.bar-graph
+    fill: url(#polkadot)
+  
+  &.clock
+    //...
+    
+  &.digital
+    fill: url(#polkadot)
+
+  &.gauge    
+    //...
+  
+  &.tank
+    fill: url(#polkadot)
+
+          
+.component-surface
+  fill: $darkestBase
+  fillOpacity: 0.5
+  
+  &.bar-graph
+    fill: $darkThird
+    stroke-width: 0.25
+    // stroke-opacity: 0.2
+
+  &.clock
+    //...  
+
+  &.digital
+    stroke-width: 0.75
+    stroke-opacity: 0.75
+    
+  &.gauge
+    stroke-width: 1.5
+    stroke-opacity: 0.75
+  
+  &.tank
+    fill: $darkThird 
+  
+  
+.component-outline
+  // fill: $baseColor
+  stroke: url(#green-gradient)
+  
+  &.bar-graph
+    stroke-width: 0.5
+
+  &.clock
+    //...  
+
+  &.digital
+    stroke-width: 0.7
+    
+  &.gauge
+  //...
+
+  &.tank
+    stroke-width: 0.7
+
+
+.major-tick-text
+  fill: #FFF
+  text-anchor: middle
+  // font-family: Montserrat, Arial, sans-serif
+  font-family: Tahoma, Arial, sans-serif 
+  font-size: 0.12rem
+  // font-weight: 600
+
+  &.clock
+    font-size: 0.2rem
+
+
+.min-max-markers
+  stroke: #FFF
+  stroke-width: 0.2
+
+  &.min-mark
+    fill: #00F
+
+  &.max-mark
+    fill: #F00
+
+
+.needle-base
+  fill: tomato
+  stroke: url(#repeated)
+  stroke-width: 1.2
+  
+
+.needle
+  stroke: #F00
+  stroke-width: 0.5
+  
+  
+.numeric-background
+  stroke: #666
+  stroke-width: 0.2
+  stroke-opacity: 0.5
+
+
+.range
+  opacity: 0.75
+  // stroke: currentColor
+  // stroke-width: 4
+  // stroke-opacity: 0.75
+  // stroke-dasharray: "1.75 8.72"
+  
+  
+.ticks
+  stroke: #FFF
+
+  &.major-text
+    font-family: Monospace, Arial, sans-serif
+    font-size: 0.05em
+  
+  &.major-tick
+    stroke-width: 0.4
+    font-weight: bolder
+
+  &.minor-tick
+    stroke-width: 0.15
+    stroke-opacity: 0.4
+   
+
+.title, .units, .value
+  // font-family: Montserrat, Arial, sans-serif
+  font-family: Tahoma, Arial, sans-serif 
+
+.title
+  fill: #FFF
+  text-anchor: middle
+  font-size: 0.45rem
+  
+  &.bar-graph
+    transform: translate(-40px,40px) rotate(-90deg)
+    
+  &.tank
+    font-size: 0.6rem    
+
+
+.units
+  fill: #FFF
+  text-anchor: end
+  font-size: 0.35rem
+
+  &.tank
+    font-size: 0.5rem
+  
+
+.value
+  text-anchor: middle
+  font-weight: 800
+  font-size: 0.3rem
+  
+  &.tank
+    stroke-width: 0.15
+    font-size: 0.5rem
+    
+   
+// SVG gradients
+//.............................................................................. 
+.stop1, .stop2, .stop3
+  stop-color: currentColor
+  stop-opacity: 0
+  
+  
+// CSS transformations, transitions and animations
+//.............................................................................. 
+@keyframes progress 
+  0% 
+    stroke-dasharray: 0 100;
+
+.line 
+  fill: none;
+  stroke: mix(#FF0, #F00)
+  stroke-opacity: 0.25
+  stroke-dasharray: 100 100
+  stroke-dashoffset: none
+  stroke-width: 9;
+  stroke-linecap: square;
+  animation: progress 3s ease-out forwards;
+
+  &.horz-bar 
+      stroke: #0F0
+    
+  &.vert-bar
+    stroke: #4CC790
+
+
+@keyframes move 
+  0%, 100% 
+    transform: translateX(0)
+    50% 
+    transform: translateY(35px);
+
+svg 
+  g rect:first-of-type 
+    animation: move 3s ease infinite
+
+
+// eof

@@ -1,0 +1,116 @@
+// File: src/components/css/color-wheel.sass
+// Note: RGB Color Wheel references X11 color names and/or 216 web-safe colors
+// Date: 02/06/2020
+//..............................................................................
+
+// primary colors
+//..............................................................................
+// 12. red    
+// $baseColor: rgb(255, 0, 0)
+
+// 4. green          
+// $baseColor: rgb(0, 255, 0)
+       
+// 8. blue  
+// $baseColor: rgb(0, 0, 255)       
+
+ 
+// secondary colors
+//..............................................................................
+// 2. mangenta
+// $baseColor: rgb(255, 0, 255)
+
+// 6. cyan        
+// $baseColor: rgb(0, 255, 255)     
+
+// 10. yellow 
+// $baseColor: rgb(255, 255, 0)          
+
+
+// tertiary colors
+//..............................................................................
+// 1. rose        
+// $baseColor: rgb(255, 0, 128)
+
+// 3. violet           
+// $baseColor: rgb(128, 0, 255)     
+
+// 5. azure        
+// $baseColor: rgb(0, 128, 255)     
+
+// 7. spring green 
+// $baseColor: rgb(0, 255, 128)
+     
+// 9. chartreuse  
+// $baseColor: rgb(128, 255, 0)     
+
+// 11. orange       
+// $baseColor: rgb(255, 128, 0)     
+
+
+// color space use cases
+// $baseColor: #FF8000
+// $baseColor: #3BE06D 
+// $baseColor: #006EFF
+// $baseColor: #FFCF31
+// $baseColor: #69F157
+// $baseColor: #0DBAFF
+// $baseColor: #4CC790
+
+// brand color
+$baseColor: #113355 
+
+// shades and tints
+$contrast: 20% 
+$contrastIncrease: 1.25
+ 
+$hueAdjust: 40    // anologous colors
+// $hueAdjust: 120 // triad colors
+
+// tones
+$toneBase: saturate($baseColor, $contrast)
+// $toneBase: desaturate($baseColor, $contrast)
+
+// opacity and transparency
+$amount: 0.75
+$alphaBase: opacify($baseColor, $amount)
+// $alphaBase: transparentize($baseColor, $amount)
+
+
+// Monochromatic Color Schemes
+//..............................................................................
+$lightBase: lighten($baseColor, $contrast)
+$darkBase: darken($baseColor, $contrast)
+
+$lightestBase: lighten($baseColor, $contrast * $contrastIncrease)
+$darkestBase: darken($baseColor, $contrast * $contrastIncrease)
+
+
+// Complementary Color Schemes
+//..............................................................................
+$secondColor: complement($baseColor)
+
+$lightSecond: lighten($secondColor, $contrast)
+$darkSecond: darken($secondColor, $contrast)
+
+$lightestSecond: lighten($secondColor, $contrast * $contrastIncrease)
+$darkestSecond: darken($secondColor, $contrast * $contrastIncrease)
+
+
+// Analogous or Triad Color Schemes
+//..............................................................................
+$thirdColor: adjust-hue($baseColor, $hueAdjust * 2)
+
+$lightThird: lighten($thirdColor, $contrast)
+$darkThird: darken($thirdColor, $contrast)
+
+$lightestThird: lighten($thirdColor, $contrast * $contrastIncrease)
+$darkestThird: darken($thirdColor, $contrast * $contrastIncrease)
+
+
+// Split Compliment Triad (Compound ) Color Schemes
+//..............................................................................
+// TBD
+
+// eof
+

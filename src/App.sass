@@ -1,0 +1,86 @@
+// File: src/App.sass
+// Note: Styles Guide for N2KView Application
+// Date: 03/13/2020
+//..............................................................................
+@import 'components/styles/component.sass'
+
+.App
+  text-align: center
+
+.App-logo
+  height: 40vmin
+
+.App-header
+  background-color: #282c34
+  min-height: 100vh
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  font-size: calc(10px + 2vmin)
+  color: white
+
+.App-link
+  color: #09d3ac
+
+// ___ variables "scope" ___
+$n2k-width-x-small: 320px
+$n2k-width-small: 768px
+$n2k-width-medium: 1024px
+$n2k-width-large: 1216px
+$n2k-width-large: 1216px
+
+// ___ mixins "function" ___
+=responsive($width)
+  @if $width == large-screens
+    @media only screen and (max-width: $n2k-width-large)
+      @content
+  @else if $width == medium-screens
+    @media only screen and (max-width: $n2k-width-medium)
+      @content
+  @else if $width == small-screens
+    @media only screen and (max-width: $n2k-width-small)
+      @content
+
+// ___ placeholders & selectors "context" ___
+%content
+  width: 70%
+
+.screen-style
+  display: flex
+  width: 100%
+  height: 100%
+  margin: auto 0
+
+  @extend %content
+  +responsive(large-screens)
+    width: 80%
+  
+  +responsive(medium-screens)
+    width: 50%
+    font-size: 24px
+
+  +responsive(small-screens)
+    width: 100%
+    font-size: 12px
+    
+    
+// ___ disable text selection highlighting ___
+*
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: -moz-none
+  -o-user-select: none
+  user-select: none
+  
+
+// ___ enable text selection highlighting ___
+p
+  -webkit-user-select: text
+  -khtml-user-select: text
+  -moz-user-select: text
+  -o-user-select: text
+  user-select: text
+
+      
+// eof
